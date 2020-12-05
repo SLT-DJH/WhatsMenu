@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/radius_linkblue">
+
+            <TextView
+                android:gravity="center_horizontal"
+                android:id="@+id/mealType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="mealtype"
+                android:textColor="@color/White"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/meal1"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="meal1"
+            android:textColor="@color/Black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="8dp"/>
+
+        <TextView
+            android:id="@+id/meal2"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="meal2"
+            android:textColor="@color/Black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="8dp"/>
+
+        <TextView
+            android:id="@+id/meal3"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="meal3"
+            android:textColor="@color/Black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="8dp"/>
+
+        <TextView
+            android:id="@+id/meal4"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="meal4"
+            android:textColor="@color/Black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="8dp"/>
+
+        <TextView
+            android:id="@+id/meal5"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="meal5"
+            android:textColor="@color/Black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="8dp"/>
+
+        <TextView
+            android:id="@+id/meal6"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="meal6"
+            android:textColor="@color/Black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="8dp"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">오늘의 밥</string>
+    <string name="copyright">Copyright ⓒ 2020 오늘의 밥 All rights reserved.</string>
+    <string name="check_menu_name">등록된 식단 확인</string>
+    <string name="input_menu_list">식단 이름 입력</string>
+    <string name="introduction">식단 이름을 입력하거나 \n식단 리스트를 확인해주세요.</string>
+    <string name="name">이  름</string>
+    <string name="request_input_name">식단 이름을 입력해주세요.</string>
+    <string name="confirm">확 인</string>
+    <string name="no_such_data">해당 식단 이름이 없습니다!</string>
+    <string name="please_input">식단 이름을 기입해주세요!</string>
+    <string name="cancel">취 소</string>
+</resources>

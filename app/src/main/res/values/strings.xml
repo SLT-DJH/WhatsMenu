@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WhatsMenu</string>
+    <string name="copyright">Copyright ⓒ 2020 WhatsMenu All rights reserved.</string>
+    <string name="check_menu_name">Check Menu Name</string>
+    <string name="input_menu_list">Input Menu Name</string>
+    <string name="introduction">Please input menu name or \nCheck menu name list.</string>
+    <string name="name">Name</string>
+    <string name="request_input_name">Please input menu name</string>
+    <string name="confirm">Confirm</string>
+    <string name="no_such_data">There is no such menu name!</string>
+    <string name="please_input">Please input menu name!</string>
+    <string name="cancel">Cancel</string>
+
+</resources>

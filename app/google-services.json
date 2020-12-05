@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "323043200948",
+    "firebase_url": "https://whatsmenu-40465.firebaseio.com",
+    "project_id": "whatsmenu-40465",
+    "storage_bucket": "whatsmenu-40465.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:323043200948:android:4800f419a849bc42b36ce1",
+        "android_client_info": {
+          "package_name": "com.jinhyun.whatsmenu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "323043200948-tmrd730g0suvm7qp6auve1mtnl9ab9qf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcZ9Tpmifph8v2j78kNyoDO8SfH3wJ34s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "323043200948-tmrd730g0suvm7qp6auve1mtnl9ab9qf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

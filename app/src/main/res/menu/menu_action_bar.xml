@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_today"
+        android:title="Today"
+        android:icon="@drawable/loop"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_calendar"
+        android:title="Calendar"
+        android:icon="@drawable/calendar"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_menu"
+        android:title="Menu"
+        android:icon="@drawable/menu"
+        app:showAsAction="ifRoom"/>
+
+</menu>
