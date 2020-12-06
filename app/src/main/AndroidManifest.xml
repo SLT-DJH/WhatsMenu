@@ -21,6 +21,7 @@
         <activity android:name=".ManagerActivity"/>
         <activity android:name=".MenuListActivity"/>
         <activity android:name=".SelectActivity"/>
+        <activity android:name=".CheckMenuListActivity"/>
     </application>
 
 </manifest>

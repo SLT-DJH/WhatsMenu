@@ -7,8 +7,13 @@
     <string name="introduction">Please input menu name or \nCheck menu name list.</string>
     <string name="name">Name</string>
     <string name="request_input_name">Please input menu name</string>
+    <string name="password">Password</string>
+    <string name="request_input_password">Please input password</string>
     <string name="confirm">Confirm</string>
     <string name="no_such_data">There is no such menu name!</string>
     <string name="please_input">Please input menu name!</string>
     <string name="cancel">Cancel</string>
+    <string name="add">ADD</string>
+    <string name="delete">DEL</string>
+    <string name="search_menu">Search Menu Name</string>
 </resources>

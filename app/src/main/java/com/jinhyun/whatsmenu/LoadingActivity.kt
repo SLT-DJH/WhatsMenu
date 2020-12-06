@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.PersistableBundle
+import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.AnimationUtils
@@ -12,11 +14,15 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_search_menu_list.*
 import kotlinx.android.synthetic.main.activity_loading.*
 
 class LoadingActivity : AppCompatActivity() {
+
+    val TAG = "LoadingActivity"
 
     val db = FirebaseFirestore.getInstance()
     val menucollection = db.collection("Menu")
@@ -30,12 +36,11 @@ class LoadingActivity : AppCompatActivity() {
         btn_check_menu_name.visibility = View.INVISIBLE
         btn_input_menu_name.visibility = View.INVISIBLE
 
-        val notanimation = AnimationUtils.loadAnimation(this, R.anim.not_loading_animation)
-
-        iv_logo.startAnimation(notanimation)
-
         btn_check_menu_name.setOnClickListener{
-
+            val intent = Intent(this, CheckMenuListActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left)
+            finish()
         }
 
         btn_input_menu_name.setOnClickListener {
@@ -45,10 +50,26 @@ class LoadingActivity : AppCompatActivity() {
 
         var pref = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
 
-        if(pref.getString("name","") == ""){
-            startloading()
+//        if(pref.getString("name","") == ""){
+//            startloading()
+//        }else{
+//            skiploading()
+//        }
+
+        if(intent.hasExtra("from")){
+            Log.d(TAG, "from ${intent.getStringExtra("from")}")
+
+            tv_copyright.visibility = View.VISIBLE
+            tv_introduction.visibility = View.VISIBLE
+            btn_check_menu_name.visibility = View.VISIBLE
+            btn_input_menu_name.visibility = View.VISIBLE
+
         }else{
-            skiploading()
+            val notanimation = AnimationUtils.loadAnimation(this, R.anim.not_loading_animation)
+
+            iv_logo.startAnimation(notanimation)
+
+            startloading()
         }
 
     }
@@ -79,10 +100,6 @@ class LoadingActivity : AppCompatActivity() {
             btn_check_menu_name.visibility = View.VISIBLE
             btn_input_menu_name.visibility = View.VISIBLE
         }, 2000)
-    }
-
-    private fun listCodeInput(){
-
     }
 
     private fun getList(){
