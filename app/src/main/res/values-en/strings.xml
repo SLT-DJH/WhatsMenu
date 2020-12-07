@@ -6,14 +6,24 @@
     <string name="input_menu_list">Input Menu Name</string>
     <string name="introduction">Please input menu name or \nCheck menu name list.</string>
     <string name="name">Name</string>
-    <string name="request_input_name">Please input menu name</string>
+    <string name="request_input_name">Input menu name</string>
     <string name="password">Password</string>
-    <string name="request_input_password">Please input password</string>
+    <string name="request_input_password">Input menu password</string>
     <string name="confirm">Confirm</string>
     <string name="no_such_data">There is no such menu name!</string>
-    <string name="please_input">Please input menu name!</string>
+    <string name="please_input">Please fill out every form!</string>
     <string name="cancel">Cancel</string>
     <string name="add">ADD</string>
     <string name="delete">DEL</string>
     <string name="search_menu">Search Menu Name</string>
+    <string name="already_data">This menu name already exist!</string>
+    <string name="menu_name_added">Menu name added successfully</string>
+    <string name="menu_name_add_fail">Failed to add menu name...</string>
+    <string name="add_menu_name">Add Menu Name</string>
+    <string name="manager_password">Manager Password</string>
+    <string name="request_input_manager_password">Input manager password</string>
+    <string name="delete_menu_name">Delete Menu Name</string>
+    <string name="deleted_successfully">Deleted Successfully</string>
+    <string name="menu_name_delete_fail">Failed to delete menu name...</string>
+    <string name="menu_name_password_wrong">Data is wrong</string>
 </resources>

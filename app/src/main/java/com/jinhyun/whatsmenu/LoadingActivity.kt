@@ -113,11 +113,12 @@ class LoadingActivity : AppCompatActivity() {
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = inflater.inflate(R.layout.input_menu_alert_popup, null)
         var name : EditText = view.findViewById(R.id.et_request_input_name)
+        var password : EditText = view.findViewById(R.id.et_password)
 
         val alertDialog = AlertDialog.Builder(this)
             .setTitle(R.string.input_menu_list)
             .setPositiveButton(R.string.confirm){dialog, which ->
-                if(name.text.toString().isNotBlank()){
+                if(name.text.toString().isNotBlank() && password.text.toString().isNotBlank()){
                     val menunameRef = menucollection.document(name.text.toString())
                     menunameRef.get().addOnSuccessListener { document ->
                         if(document.data != null){
