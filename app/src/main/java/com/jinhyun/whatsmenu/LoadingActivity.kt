@@ -36,25 +36,8 @@ class LoadingActivity : AppCompatActivity() {
         btn_check_menu_name.visibility = View.INVISIBLE
         btn_input_menu_name.visibility = View.INVISIBLE
 
-        btn_check_menu_name.setOnClickListener{
-            val intent = Intent(this, CheckMenuListActivity::class.java)
-            startActivity(intent)
-            overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left)
-            finish()
-        }
-
-        btn_input_menu_name.setOnClickListener {
-            showalert()
-
-        }
-
         var pref = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
 
-//        if(pref.getString("name","") == ""){
-//            startloading()
-//        }else{
-//            skiploading()
-//        }
 
         if(intent.hasExtra("from")){
             Log.d(TAG, "from ${intent.getStringExtra("from")}")
@@ -69,13 +52,29 @@ class LoadingActivity : AppCompatActivity() {
 
             iv_logo.startAnimation(notanimation)
 
-            startloading()
+            if(pref.getString("name","") == ""){
+                startloading()
+            }else{
+                skiploading()
+            }
+        }
+
+        btn_check_menu_name.setOnClickListener{
+            val intent = Intent(this, CheckMenuListActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left)
+            finish()
+        }
+
+        btn_input_menu_name.setOnClickListener {
+            showalert()
+
         }
 
     }
 
     private fun skiploading(){
-        val handler = Handler().postDelayed({
+        Handler().postDelayed({
             val intent = Intent(this, MenuListActivity::class.java)
             startActivity(intent)
 

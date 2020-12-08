@@ -77,8 +77,9 @@
         app:queryHint="@string/search_menu"/>
 
     <ListView
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
+        android:id="@+id/lv_search"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp" />
 </LinearLayout>

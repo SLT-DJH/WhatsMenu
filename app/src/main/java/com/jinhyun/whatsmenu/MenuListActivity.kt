@@ -2,6 +2,7 @@ package com.jinhyun.whatsmenu
 
 import android.app.DatePickerDialog
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
@@ -12,6 +13,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_menu_list.*
+import kotlinx.android.synthetic.main.custom_actionbar.*
 import java.util.*
 
 class MenuListActivity : AppCompatActivity() {
@@ -40,6 +42,10 @@ class MenuListActivity : AppCompatActivity() {
 
         val menuname = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
             .getString("name", "").toString()
+
+        val menutitle = "$menuname " + getString(R.string.menu)
+
+        toolbar_title.text = menutitle
 
         Log.d(TAG, "get string : $menuname")
 
@@ -141,6 +147,17 @@ class MenuListActivity : AppCompatActivity() {
 
             }
             R.id.action_menu -> {
+                return true
+            }
+            R.id.action_change -> {
+                val intent = Intent(this, LoadingActivity::class.java)
+                intent.putExtra("from", "Menu")
+                startActivity(intent)
+                overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
+                finish()
+                return true
+            }
+            R.id.action_manager -> {
                 return true
             }
         }

@@ -19,6 +19,20 @@
         android:id="@+id/action_menu"
         android:title="Menu"
         android:icon="@drawable/menu"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom">
+
+        <menu>
+            <item
+                android:id="@+id/action_change"
+                android:title="@string/to_home"/>
+            <item
+                android:id="@+id/action_manager"
+                android:title="@string/switch_menu"/>
+
+        </menu>
+
+    </item>
+
+
 
 </menu>

@@ -50,7 +50,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/request_input_name"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:maxLength="10" />
 
             <EditText
                 android:id="@+id/et_password"
@@ -59,7 +60,9 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/request_input_password"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:maxLength="10"
+                android:password="true" />
         </LinearLayout>
 
     </LinearLayout>

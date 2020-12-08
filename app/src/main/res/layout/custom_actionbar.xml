@@ -14,7 +14,8 @@
         android:text="Toolbar Title"
         android:textColor="@color/White"
         android:textStyle="bold"
+        android:layout_marginLeft="20dp"
         android:textSize="20sp"
-        android:layout_gravity="center"/>
+        android:layout_gravity="left"/>
 
 </androidx.appcompat.widget.Toolbar>

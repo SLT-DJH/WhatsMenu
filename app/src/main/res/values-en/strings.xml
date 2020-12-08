@@ -25,5 +25,8 @@
     <string name="delete_menu_name">Delete Menu Name</string>
     <string name="deleted_successfully">Deleted Successfully</string>
     <string name="menu_name_delete_fail">Failed to delete menu name...</string>
-    <string name="menu_name_password_wrong">Data is wrong</string>
+    <string name="menu_name_password_wrong">Name or Password is wrong</string>
+    <string name="menu">Menu</string>
+    <string name="to_home">Go to home</string>
+    <string name="switch_menu">Manager Page</string>
 </resources>
