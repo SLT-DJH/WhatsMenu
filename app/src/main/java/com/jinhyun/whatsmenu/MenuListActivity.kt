@@ -4,10 +4,13 @@ import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,6 +22,7 @@ import java.util.*
 class MenuListActivity : AppCompatActivity() {
 
     val db = FirebaseFirestore.getInstance()
+    val menucollection = db.collection("Menu")
 
     val calendar = Calendar.getInstance()
 
@@ -40,8 +44,8 @@ class MenuListActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        val menuname = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
-            .getString("name", "").toString()
+        val pref = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
+        val menuname = pref.getString("name", "").toString()
 
         val menutitle = "$menuname " + getString(R.string.menu)
 
@@ -158,6 +162,47 @@ class MenuListActivity : AppCompatActivity() {
                 return true
             }
             R.id.action_manager -> {
+                val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+                val view = inflater.inflate(R.layout.manager_alert_popup, null)
+                var managerpassword : EditText = view.findViewById(R.id.et_manager_password)
+
+                val pref = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
+                val menuname = pref.getString("name", "").toString()
+                val managerPassword = pref.getString("manager password", "").toString()
+
+                managerpassword.setText(managerPassword)
+
+                val alertDialog = AlertDialog.Builder(this)
+                    .setTitle(R.string.manager_sign_in)
+                    .setPositiveButton(R.string.confirm){dialog, which ->
+                        if(managerpassword.text.toString().isNotBlank()){
+                            val menunameRef = menucollection.document(menuname)
+                            menunameRef.get().addOnSuccessListener { document ->
+                                if(document.data != null){
+
+                                    val savedmanagerpassword = document.getString("manager password").toString()
+
+                                    if(managerpassword.text.toString() == savedmanagerpassword){
+                                        pref.edit().putString("manager password", managerpassword.text.toString()).apply()
+
+                                        val intent = Intent(this, ManagerActivity::class.java)
+                                        startActivity(intent)
+                                        finish()
+                                    }else{
+                                        Toast.makeText(this, R.string.manager_password_wrong, Toast.LENGTH_SHORT).show()
+                                    }
+
+                                }
+                            }
+                        }else{
+                            Toast.makeText(this, R.string.please_input, Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    .setNegativeButton(R.string.cancel, null)
+                    .create()
+
+                alertDialog.setView(view)
+                alertDialog.show()
                 return true
             }
         }
@@ -166,9 +211,10 @@ class MenuListActivity : AppCompatActivity() {
     }
 
     private fun insertData(date : String) {
-        val menuname = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
-            .getString("name", "").toString()
         val menulist = ArrayList<MainData>()
+
+        val pref = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
+        val menuname = pref.getString("name", "").toString()
 
         //아침 -> 점심 -> 저녁 -> 출력
 
@@ -187,10 +233,10 @@ class MenuListActivity : AppCompatActivity() {
                 val meal4 = document.getString("4").toString()
                 val meal5 = document.getString("5").toString()
                 val meal6 = document.getString("6").toString()
-                menulist += MainData("아침", meal1, meal2, meal3, meal4, meal5, meal6)
+                menulist += MainData(getString(R.string.breakfast), meal1, meal2, meal3, meal4, meal5, meal6)
                 insertLunch(menulist, date, menuname)
             } else {
-                menulist += MainData("아침", "", "", "",
+                menulist += MainData(getString(R.string.breakfast), "", "", "",
                     "", "", "")
                 insertLunch(menulist, date, menuname)
             }
@@ -210,10 +256,10 @@ class MenuListActivity : AppCompatActivity() {
                 val meal4 = document.getString("4").toString()
                 val meal5 = document.getString("5").toString()
                 val meal6 = document.getString("6").toString()
-                menulist += MainData("점심",  meal1, meal2, meal3, meal4, meal5, meal6)
+                menulist += MainData(getString(R.string.lunch),  meal1, meal2, meal3, meal4, meal5, meal6)
                 insertDinner(menulist, date, menuname)
             } else {
-                menulist += MainData("점심", "", "", "",
+                menulist += MainData(getString(R.string.lunch), "", "", "",
                     "", "", "")
                 insertDinner(menulist, date, menuname)
             }
@@ -231,14 +277,14 @@ class MenuListActivity : AppCompatActivity() {
                 val meal4 = document.getString("4").toString()
                 val meal5 = document.getString("5").toString()
                 val meal6 = document.getString("6").toString()
-                menulist += MainData("저녁", meal1, meal2, meal3, meal4, meal5, meal6)
+                menulist += MainData(getString(R.string.dinner), meal1, meal2, meal3, meal4, meal5, meal6)
 
                 rv_menu.adapter = ItemAdapter(menulist)
                 rv_menu.layoutManager = LinearLayoutManager(this)
                 rv_menu.setHasFixedSize(true)
             } else {
                 menulist += MainData(
-                    "저녁", "", "", "",
+                    getString(R.string.dinner), "", "", "",
                     "", "", ""
                 )
 

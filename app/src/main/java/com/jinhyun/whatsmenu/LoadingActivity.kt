@@ -36,8 +36,7 @@ class LoadingActivity : AppCompatActivity() {
         btn_check_menu_name.visibility = View.INVISIBLE
         btn_input_menu_name.visibility = View.INVISIBLE
 
-        var pref = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
-
+        val pref = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
 
         if(intent.hasExtra("from")){
             Log.d(TAG, "from ${intent.getStringExtra("from")}")
@@ -60,6 +59,7 @@ class LoadingActivity : AppCompatActivity() {
         }
 
         btn_check_menu_name.setOnClickListener{
+            pref.edit().putString("manager password", "").apply()
             val intent = Intent(this, CheckMenuListActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left)
@@ -101,10 +101,6 @@ class LoadingActivity : AppCompatActivity() {
         }, 2000)
     }
 
-    private fun getList(){
-
-    }
-
     private fun showalert(){
 
         var pref = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
@@ -121,8 +117,7 @@ class LoadingActivity : AppCompatActivity() {
                     val menunameRef = menucollection.document(name.text.toString())
                     menunameRef.get().addOnSuccessListener { document ->
                         if(document.data != null){
-                            var editor = pref.edit()
-                            editor.putString("name", name.text.toString()).apply()
+                            pref.edit().putString("name", name.text.toString()).apply()
 
                             val intent = Intent(this, MenuListActivity::class.java)
                             startActivity(intent)

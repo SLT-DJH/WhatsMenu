@@ -25,8 +25,33 @@
     <string name="delete_menu_name">식단 이름 삭제</string>
     <string name="deleted_successfully">식단 이름이 삭제되었습니다.</string>
     <string name="menu_name_delete_fail">식단 이름 삭제에 실패하였습니다.</string>
-    <string name="menu_name_password_wrong">이름 혹인 비밀번호가 잘못되었습니다.</string>
+    <string name="menu_name_password_wrong">이름 혹은 비밀번호가 잘못되었습니다.</string>
+    <string name="manager_password_wrong">관리자 비밀번호가 잘못되었습니다.</string>
     <string name="menu">메뉴</string>
     <string name="to_home">홈으로 이동</string>
     <string name="switch_menu">관리자 페이지</string>
+    <string name="switch_user">사용자 페이지</string>
+
+    <string name="breakfast">아침</string>
+    <string name="lunch">점심</string>
+    <string name="dinner">저녁</string>
+
+    <string name="ask_breakfast_input">아침메뉴를 입력해주세요.</string>
+    <string name="ask_lunch_input">점심메뉴를 입력해주세요.</string>
+    <string name="ask_dinner_input">저녁메뉴를 입력해주세요.</string>
+
+    <string name="menu1">- 메뉴 1</string>
+    <string name="menu2">- 메뉴 2</string>
+    <string name="menu3">- 메뉴 3</string>
+    <string name="menu4">- 메뉴 4</string>
+    <string name="menu5">- 메뉴 5</string>
+    <string name="menu6">- 메뉴 6</string>
+
+    <string name="save">저장하기</string>
+    <string name="saved">성공적으로 저장되었습니다.</string>
+    <string name="save_fail">저장에 실패하였습니다...</string>
+
+    <string name="menu_name">메뉴 이름</string>
+
+    <string name="manager_sign_in">관리자 로그인</string>
 </resources>

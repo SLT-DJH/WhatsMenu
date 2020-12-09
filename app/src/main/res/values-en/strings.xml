@@ -26,7 +26,32 @@
     <string name="deleted_successfully">Deleted Successfully</string>
     <string name="menu_name_delete_fail">Failed to delete menu name...</string>
     <string name="menu_name_password_wrong">Name or Password is wrong</string>
+    <string name="manager_password_wrong">Manager password is wrong</string>
     <string name="menu">Menu</string>
     <string name="to_home">Go to home</string>
     <string name="switch_menu">Manager Page</string>
+    <string name="switch_user">User Page</string>
+
+    <string name="breakfast">Breakfast</string>
+    <string name="lunch">Lunch</string>
+    <string name="dinner">Dinner</string>
+
+    <string name="ask_breakfast_input">Please input breakfast menu</string>
+    <string name="ask_lunch_input">Please input lunch menu</string>
+    <string name="ask_dinner_input">Please input dinner</string>
+
+    <string name="menu1">- Menu 1</string>
+    <string name="menu2">- Menu 2</string>
+    <string name="menu3">- Menu 3</string>
+    <string name="menu4">- Menu 4</string>
+    <string name="menu5">- Menu 5</string>
+    <string name="menu6">- Menu 6</string>
+
+    <string name="save">Save</string>
+    <string name="saved">Saved successfully</string>
+    <string name="save_fail">Failed to save menu...</string>
+
+    <string name="menu_name">Menu Name</string>
+
+    <string name="manager_sign_in">Manager Sign In</string>
 </resources>
