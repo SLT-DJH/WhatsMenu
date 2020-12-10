@@ -18,6 +18,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_menu_list.*
 import kotlinx.android.synthetic.main.custom_actionbar.*
 import java.util.*
+import kotlin.collections.ArrayList
 
 class MenuListActivity : AppCompatActivity() {
 
@@ -50,8 +51,6 @@ class MenuListActivity : AppCompatActivity() {
         val menutitle = "$menuname " + getString(R.string.menu)
 
         toolbar_title.text = menutitle
-
-        Log.d(TAG, "get string : $menuname")
 
 
         changingcalendar.set(yearnow, monthnow, daynow)
@@ -168,7 +167,7 @@ class MenuListActivity : AppCompatActivity() {
 
                 val pref = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
                 val menuname = pref.getString("name", "").toString()
-                val managerPassword = pref.getString("manager password", "").toString()
+                val managerPassword = pref.getString("$menuname manager password", "").toString()
 
                 managerpassword.setText(managerPassword)
 
@@ -183,7 +182,7 @@ class MenuListActivity : AppCompatActivity() {
                                     val savedmanagerpassword = document.getString("manager password").toString()
 
                                     if(managerpassword.text.toString() == savedmanagerpassword){
-                                        pref.edit().putString("manager password", managerpassword.text.toString()).apply()
+                                        pref.edit().putString("$menuname manager password", managerpassword.text.toString()).apply()
 
                                         val intent = Intent(this, ManagerActivity::class.java)
                                         startActivity(intent)
@@ -209,9 +208,9 @@ class MenuListActivity : AppCompatActivity() {
 
         return super.onOptionsItemSelected(item)
     }
-
     private fun insertData(date : String) {
         val menulist = ArrayList<MainData>()
+        Log.d(TAG, "insertData menulist length " + menulist.size.toString())
 
         val pref = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
         val menuname = pref.getString("name", "").toString()
@@ -222,76 +221,120 @@ class MenuListActivity : AppCompatActivity() {
     }
 
     private fun insertBreakfast(menulist : ArrayList<MainData>, date : String, menuname : String){
+        Log.d(TAG, "start insertBreakfast")
+        val pref = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
 
-        val breakfastRef = db.collection("Menu").document(menuname).collection(date)
-            .document("breakfast")
-        breakfastRef.get().addOnSuccessListener { document ->
-            if (document.data != null) {
-                val meal1 = document.getString("1").toString()
-                val meal2 = document.getString("2").toString()
-                val meal3 = document.getString("3").toString()
-                val meal4 = document.getString("4").toString()
-                val meal5 = document.getString("5").toString()
-                val meal6 = document.getString("6").toString()
-                menulist += MainData(getString(R.string.breakfast), meal1, meal2, meal3, meal4, meal5, meal6)
-                insertLunch(menulist, date, menuname)
-            } else {
-                menulist += MainData(getString(R.string.breakfast), "", "", "",
-                    "", "", "")
-                insertLunch(menulist, date, menuname)
+        if(pref.getString("$date breakfast 1", "") == ""){
+            val breakfastRef = db.collection("Menu").document(menuname).collection(date)
+                .document("breakfast")
+            breakfastRef.get().addOnSuccessListener { document ->
+                if (document.data != null) {
+                    val meal1 = document.getString("1").toString()
+                    val meal2 = document.getString("2").toString()
+                    val meal3 = document.getString("3").toString()
+                    val meal4 = document.getString("4").toString()
+                    val meal5 = document.getString("5").toString()
+                    val meal6 = document.getString("6").toString()
+                    menulist += MainData(getString(R.string.breakfast), meal1, meal2, meal3, meal4, meal5, meal6)
+                    insertLunch(menulist, date, menuname)
+                } else {
+                    menulist += MainData(getString(R.string.breakfast), "", "", "",
+                        "", "", "")
+                    insertLunch(menulist, date, menuname)
+                }
             }
+        }else{
+            menulist += MainData(getString(R.string.breakfast),
+                pref.getString("$date breakfast 1", "").toString(),
+                pref.getString("$date breakfast 2", "").toString(),
+                pref.getString("$date breakfast 3", "").toString(),
+                pref.getString("$date breakfast 4", "").toString(),
+                pref.getString("$date breakfast 5", "").toString(),
+                pref.getString("$date breakfast 6", "").toString()
+                )
+            insertLunch(menulist, date, menuname)
         }
 
     }
 
     private fun insertLunch(menulist : ArrayList<MainData>, date : String, menuname : String){
+        val pref = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
 
-        val lunchRef = db.collection("Menu").document(menuname).collection(date)
-            .document("lunch")
-        lunchRef.get().addOnSuccessListener { document ->
-            if (document.data != null) {
-                val meal1 = document.getString("1").toString()
-                val meal2 = document.getString("2").toString()
-                val meal3 = document.getString("3").toString()
-                val meal4 = document.getString("4").toString()
-                val meal5 = document.getString("5").toString()
-                val meal6 = document.getString("6").toString()
-                menulist += MainData(getString(R.string.lunch),  meal1, meal2, meal3, meal4, meal5, meal6)
-                insertDinner(menulist, date, menuname)
-            } else {
-                menulist += MainData(getString(R.string.lunch), "", "", "",
-                    "", "", "")
-                insertDinner(menulist, date, menuname)
+        if(pref.getString("$date lunch 1", "") == ""){
+            val lunchRef = db.collection("Menu").document(menuname).collection(date)
+                .document("lunch")
+            lunchRef.get().addOnSuccessListener { document ->
+                if (document.data != null) {
+                    val meal1 = document.getString("1").toString()
+                    val meal2 = document.getString("2").toString()
+                    val meal3 = document.getString("3").toString()
+                    val meal4 = document.getString("4").toString()
+                    val meal5 = document.getString("5").toString()
+                    val meal6 = document.getString("6").toString()
+                    menulist += MainData(getString(R.string.lunch),  meal1, meal2, meal3, meal4, meal5, meal6)
+                    insertDinner(menulist, date, menuname)
+                } else {
+                    menulist += MainData(getString(R.string.lunch), "", "", "",
+                        "", "", "")
+                    insertDinner(menulist, date, menuname)
+                }
             }
+        }else{
+            menulist += MainData(getString(R.string.lunch),
+                pref.getString("$date lunch 1", "").toString(),
+                pref.getString("$date lunch 2", "").toString(),
+                pref.getString("$date lunch 3", "").toString(),
+                pref.getString("$date lunch 4", "").toString(),
+                pref.getString("$date lunch 5", "").toString(),
+                pref.getString("$date lunch 6", "").toString()
+            )
+            insertDinner(menulist, date, menuname)
         }
     }
 
     private fun insertDinner(menulist : ArrayList<MainData>, date : String, menuname : String) {
-        val dinnerRef = db.collection("Menu").document(menuname).collection(date)
-            .document("dinner")
-        dinnerRef.get().addOnSuccessListener { document ->
-            if (document.data != null) {
-                val meal1 = document.getString("1").toString()
-                val meal2 = document.getString("2").toString()
-                val meal3 = document.getString("3").toString()
-                val meal4 = document.getString("4").toString()
-                val meal5 = document.getString("5").toString()
-                val meal6 = document.getString("6").toString()
-                menulist += MainData(getString(R.string.dinner), meal1, meal2, meal3, meal4, meal5, meal6)
+        val pref = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
 
-                rv_menu.adapter = ItemAdapter(menulist)
-                rv_menu.layoutManager = LinearLayoutManager(this)
-                rv_menu.setHasFixedSize(true)
-            } else {
-                menulist += MainData(
-                    getString(R.string.dinner), "", "", "",
-                    "", "", ""
-                )
+        if(pref.getString("$date dinner 1", "") == ""){
+            val dinnerRef = db.collection("Menu").document(menuname).collection(date)
+                .document("dinner")
+            dinnerRef.get().addOnSuccessListener { document ->
+                if (document.data != null) {
+                    val meal1 = document.getString("1").toString()
+                    val meal2 = document.getString("2").toString()
+                    val meal3 = document.getString("3").toString()
+                    val meal4 = document.getString("4").toString()
+                    val meal5 = document.getString("5").toString()
+                    val meal6 = document.getString("6").toString()
+                    menulist += MainData(getString(R.string.dinner), meal1, meal2, meal3, meal4, meal5, meal6)
 
-                rv_menu.adapter = ItemAdapter(menulist)
-                rv_menu.layoutManager = LinearLayoutManager(this)
-                rv_menu.setHasFixedSize(true)
+                    rv_menu.adapter = ItemAdapter(menulist)
+                    rv_menu.layoutManager = LinearLayoutManager(this)
+                    rv_menu.setHasFixedSize(true)
+                } else {
+                    menulist += MainData(
+                        getString(R.string.dinner), "", "", "",
+                        "", "", ""
+                    )
+
+                    rv_menu.adapter = ItemAdapter(menulist)
+                    rv_menu.layoutManager = LinearLayoutManager(this)
+                    rv_menu.setHasFixedSize(true)
+                }
             }
+        }else{
+            menulist += MainData(getString(R.string.dinner),
+                pref.getString("$date dinner 1", "").toString(),
+                pref.getString("$date dinner 2", "").toString(),
+                pref.getString("$date dinner 3", "").toString(),
+                pref.getString("$date dinner 4", "").toString(),
+                pref.getString("$date dinner 5", "").toString(),
+                pref.getString("$date dinner 6", "").toString()
+            )
+            Log.d(TAG, "print what? : $menuname")
+            rv_menu.adapter = ItemAdapter(menulist)
+            rv_menu.layoutManager = LinearLayoutManager(this)
+            rv_menu.setHasFixedSize(true)
         }
     }
 }

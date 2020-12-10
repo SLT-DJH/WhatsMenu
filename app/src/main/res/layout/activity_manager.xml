@@ -58,6 +58,7 @@
             </LinearLayout>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cv_breakfast"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp">
@@ -66,17 +67,17 @@
                     android:id="@+id/breakfastInputView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="10dp">
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/breakfastMenuText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/ask_breakfast_input"
-                        android:textStyle="bold"
+                        android:textColor="@color/linkBlue"
                         android:textSize="20sp"
-                        android:textColor="@color/linkBlue"/>
+                        android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -95,8 +96,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
-                            android:hint="@string/menu_name" />
+                            android:hint="@string/menu_name"
+                            android:inputType="textPersonName" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -116,8 +117,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
-                            android:hint="@string/menu_name" />
+                            android:hint="@string/menu_name"
+                            android:inputType="textPersonName" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -137,8 +138,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
-                            android:hint="@string/menu_name" />
+                            android:hint="@string/menu_name"
+                            android:inputType="textPersonName" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -158,8 +159,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
-                            android:hint="@string/menu_name" />
+                            android:hint="@string/menu_name"
+                            android:inputType="textPersonName" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -179,8 +180,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
-                            android:hint="@string/menu_name" />
+                            android:hint="@string/menu_name"
+                            android:inputType="textPersonName" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -200,8 +201,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
-                            android:hint="@string/menu_name" />
+                            android:hint="@string/menu_name"
+                            android:inputType="textPersonName" />
                     </LinearLayout>
 
                     <TextView
@@ -209,17 +210,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
+                        android:layout_marginRight="20dp"
                         android:text="@string/save"
                         android:textColor="@color/linkBlue"
                         android:textSize="15sp"
-                        android:textStyle="bold"
-                        android:layout_marginRight="20dp"/>
+                        android:textStyle="bold" />
 
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cv_lunch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp">
@@ -228,17 +230,17 @@
                     android:id="@+id/lunchInputView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="10dp">
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/lunchMenuText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/ask_lunch_input"
-                        android:textStyle="bold"
+                        android:textColor="@color/linkBlue"
                         android:textSize="20sp"
-                        android:textColor="@color/linkBlue"/>
+                        android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -257,8 +259,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
-                            android:hint="@string/menu_name" />
+                            android:hint="@string/menu_name"
+                            android:inputType="textPersonName" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -278,8 +280,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
-                            android:hint="@string/menu_name" />
+                            android:hint="@string/menu_name"
+                            android:inputType="textPersonName" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -299,8 +301,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
-                            android:hint="@string/menu_name" />
+                            android:hint="@string/menu_name"
+                            android:inputType="textPersonName" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -320,8 +322,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
-                            android:hint="@string/menu_name" />
+                            android:hint="@string/menu_name"
+                            android:inputType="textPersonName" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -341,8 +343,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
-                            android:hint="@string/menu_name" />
+                            android:hint="@string/menu_name"
+                            android:inputType="textPersonName" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -362,8 +364,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
-                            android:hint="@string/menu_name" />
+                            android:hint="@string/menu_name"
+                            android:inputType="textPersonName" />
                     </LinearLayout>
 
                     <TextView
@@ -371,17 +373,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
+                        android:layout_marginRight="20dp"
                         android:text="@string/save"
                         android:textColor="@color/linkBlue"
                         android:textSize="15sp"
-                        android:textStyle="bold"
-                        android:layout_marginRight="20dp"/>
+                        android:textStyle="bold" />
 
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cv_dinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp">
@@ -390,17 +393,17 @@
                     android:id="@+id/dinnerInputView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="10dp">
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/dinnerMenuText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/ask_breakfast_input"
-                        android:textStyle="bold"
+                        android:text="@string/ask_dinner_input"
+                        android:textColor="@color/linkBlue"
                         android:textSize="20sp"
-                        android:textColor="@color/linkBlue"/>
+                        android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -419,8 +422,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
-                            android:hint="@string/menu_name" />
+                            android:hint="@string/menu_name"
+                            android:inputType="textPersonName" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -440,8 +443,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
-                            android:hint="@string/menu_name" />
+                            android:hint="@string/menu_name"
+                            android:inputType="textPersonName" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -461,8 +464,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
-                            android:hint="@string/menu_name" />
+                            android:hint="@string/menu_name"
+                            android:inputType="textPersonName" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -482,8 +485,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
-                            android:hint="@string/menu_name" />
+                            android:hint="@string/menu_name"
+                            android:inputType="textPersonName" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -503,8 +506,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
-                            android:hint="@string/menu_name" />
+                            android:hint="@string/menu_name"
+                            android:inputType="textPersonName" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -524,8 +527,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
-                            android:hint="@string/menu_name" />
+                            android:hint="@string/menu_name"
+                            android:inputType="textPersonName" />
                     </LinearLayout>
 
                     <TextView
@@ -533,11 +536,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
+                        android:layout_marginRight="20dp"
                         android:text="@string/save"
                         android:textColor="@color/linkBlue"
                         android:textSize="15sp"
-                        android:textStyle="bold"
-                        android:layout_marginRight="20dp"/>
+                        android:textStyle="bold" />
 
 
                 </LinearLayout>
