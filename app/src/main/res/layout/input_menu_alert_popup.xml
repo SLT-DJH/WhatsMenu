@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal">
@@ -16,24 +16,24 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_name"
-                android:layout_width="90dp"
-                android:textColor="@color/Black"
+                android:id="@+id/tv_add_name"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="right|center_vertical"
                 android:text="@string/name"
-                android:textSize="18sp" />
+                android:textColor="@color/Black"
+                android:textSize="13sp" />
 
             <TextView
-                android:id="@+id/tv_password"
-                android:layout_width="90dp"
+                android:id="@+id/tv_del_password"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="right|center_vertical"
                 android:text="@string/password"
                 android:textColor="@color/Black"
-                android:textSize="18sp" />
+                android:textSize="13sp" />
 
         </LinearLayout>
 
@@ -45,24 +45,26 @@
 
             <EditText
                 android:id="@+id/et_request_input_name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/request_input_name"
                 android:inputType="textPersonName"
-                android:maxLength="10" />
+                android:maxLength="10"
+                android:textSize="13sp" />
 
             <EditText
                 android:id="@+id/et_password"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/request_input_password"
                 android:inputType="textPersonName"
                 android:maxLength="10"
-                android:password="true" />
+                android:password="true"
+                android:textSize="13sp" />
         </LinearLayout>
 
     </LinearLayout>

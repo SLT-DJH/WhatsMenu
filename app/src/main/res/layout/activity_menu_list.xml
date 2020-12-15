@@ -35,13 +35,24 @@
             <TextView
                 android:id="@+id/tv_dateprint"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+                android:gravity="right|center_vertical"
                 android:text="0000. 00. 00."
                 android:textColor="@color/Black"
-                android:textSize="25sp"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_textdate"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="MON"
+                android:textColor="@color/Black"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <ImageView

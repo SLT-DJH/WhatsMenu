@@ -2,32 +2,34 @@
 <resources>
     <string name="app_name">WhatsMenu</string>
     <string name="copyright">Copyright ⓒ 2020 WhatsMenu All rights reserved.</string>
-    <string name="check_menu_name">Check Menu Name</string>
-    <string name="input_menu_list">Input Menu Name</string>
-    <string name="introduction">Please input menu name or \nCheck menu name list.</string>
-    <string name="name">Name</string>
-    <string name="request_input_name">Input menu name</string>
-    <string name="password">Password</string>
-    <string name="request_input_password">Input menu password</string>
+    <string name="check_menu_name">Check Meal Plan</string>
+    <string name="input_menu_list">Input Meal Plan ID</string>
+    <string name="introduction">Please input meal plan ID or \nCheck meal plan list.</string>
+    <string name="name">Meal Plan ID</string>
+    <string name="request_input_name">Input meal plan ID</string>
+    <string name="password">Plan Password</string>
+    <string name="confirm_password">Confirm Plan Password</string>
+    <string name="request_input_password">Input Plan password</string>
     <string name="confirm">Confirm</string>
-    <string name="no_such_data">There is no such menu name!</string>
+    <string name="no_such_data">There is no such meal plan ID!</string>
     <string name="please_input">Please fill out every form!</string>
     <string name="cancel">Cancel</string>
     <string name="add">ADD</string>
     <string name="delete">DEL</string>
-    <string name="search_menu">Search Menu Name</string>
-    <string name="already_data">This menu name already exist!</string>
-    <string name="menu_name_added">Menu name added successfully</string>
-    <string name="menu_name_add_fail">Failed to add menu name...</string>
-    <string name="add_menu_name">Add Menu Name</string>
+    <string name="search_menu">Search Meal Plan ID</string>
+    <string name="already_data">This meal plan ID already exist!</string>
+    <string name="menu_name_added">Meal plan added successfully</string>
+    <string name="menu_name_add_fail">Failed to add meal plan...</string>
+    <string name="add_menu_name">Add Meal Plan</string>
     <string name="manager_password">Manager Password</string>
+    <string name="confirm_manager_password">Confirm Manager Password</string>
     <string name="request_input_manager_password">Input manager password</string>
-    <string name="delete_menu_name">Delete Menu Name</string>
+    <string name="delete_menu_name">Delete Meal Plan</string>
     <string name="deleted_successfully">Deleted Successfully</string>
-    <string name="menu_name_delete_fail">Failed to delete menu name...</string>
-    <string name="menu_name_password_wrong">Name or password is wrong</string>
+    <string name="menu_name_delete_fail">Failed to delete meal plan...</string>
+    <string name="menu_name_password_wrong">Plan ID or password is wrong</string>
     <string name="manager_password_wrong">Manager password is wrong</string>
-    <string name="menu">Menu</string>
+    <string name="menu">Meal Plan</string>
     <string name="to_home">Go to home</string>
     <string name="switch_menu">Manager Page</string>
     <string name="switch_user">User Page</string>
@@ -54,5 +56,15 @@
     <string name="menu_name">Menu Name</string>
 
     <string name="manager_sign_in">Manager Sign In</string>
+
+    <string name="confirm_password_wrong">Please check confirm password and confirm manager password</string>
+
+    <string name="sunday">SUN</string>
+    <string name="monday">MON</string>
+    <string name="tuesday">TUE</string>
+    <string name="wednesday">WED</string>
+    <string name="thursday">THU</string>
+    <string name="friday">FRI</string>
+    <string name="saturday">SAT</string>
 
 </resources>

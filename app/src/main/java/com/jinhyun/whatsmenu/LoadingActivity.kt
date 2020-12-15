@@ -109,18 +109,18 @@ class LoadingActivity : AppCompatActivity() {
 
             //delete data
             for(i in -1 downTo -14){
-                pluscalendar.set(yearnow, monthnow, daynow)
-                pluscalendar.add(Calendar.DATE, i)
+                minuscalendar.set(yearnow, monthnow, daynow)
+                minuscalendar.add(Calendar.DATE, i)
 
-                var yearpluschanging = pluscalendar.get(Calendar.YEAR)
-                var monthpluschanging = pluscalendar.get(Calendar.MONTH)
-                var daypluschanging = pluscalendar.get(Calendar.DAY_OF_MONTH)
+                var yearminuschanging = minuscalendar.get(Calendar.YEAR)
+                var monthminuschanging = minuscalendar.get(Calendar.MONTH)
+                var dayminuschanging = minuscalendar.get(Calendar.DAY_OF_MONTH)
 
-                var newplusmonth = monthpluschanging + 1
+                var newminusmonth = monthminuschanging + 1
 
-                var selectplusdate = "$yearpluschanging. $newplusmonth. $daypluschanging."
+                var selectminusdate = "$yearminuschanging. $newminusmonth. $dayminuschanging."
 
-                startdelete(selectplusdate, menuname)
+                startdelete(selectminusdate, menuname)
             }
         }
 

@@ -7,7 +7,8 @@
     <string name="introduction">식단 이름을 입력하거나 \n식단 리스트를 확인해주세요.</string>
     <string name="name">이름</string>
     <string name="request_input_name">식단 이름을 입력</string>
-    <string name="password">비밀번호</string>
+    <string name="password">식단 비밀번호</string>
+    <string name="confirm_password">식단 비밀번호 확인</string>
     <string name="request_input_password">식단 비밀번호를 입력</string>
     <string name="confirm">확 인</string>
     <string name="no_such_data">해당 식단 이름이 없습니다!</string>
@@ -21,6 +22,7 @@
     <string name="menu_name_add_fail">식단 이름 등록에 실패하였습니다...</string>
     <string name="add_menu_name">식단 이름 추가</string>
     <string name="manager_password">관리자 암호</string>
+    <string name="confirm_manager_password">관리자 암호 확인</string>
     <string name="request_input_manager_password">관리자 암호를 입력</string>
     <string name="delete_menu_name">식단 이름 삭제</string>
     <string name="deleted_successfully">식단 이름이 삭제되었습니다.</string>
@@ -54,4 +56,14 @@
     <string name="menu_name">메뉴 이름</string>
 
     <string name="manager_sign_in">관리자 로그인</string>
+
+    <string name="confirm_password_wrong">식단 비밀번호 및 관리자 비밀번호 확인란을 재확인해주세요!</string>
+
+    <string name="sunday">(일)</string>
+    <string name="monday">(월)</string>
+    <string name="tuesday">(화)</string>
+    <string name="wednesday">(수)</string>
+    <string name="thursday">(목)</string>
+    <string name="friday">(금)</string>
+    <string name="saturday">(토)</string>
 </resources>

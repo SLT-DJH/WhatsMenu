@@ -26,6 +26,7 @@ class ManagerActivity : AppCompatActivity() {
     val yearnow = calendar.get(Calendar.YEAR)
     val monthnow = calendar.get(Calendar.MONTH)
     val daynow = calendar.get(Calendar.DAY_OF_MONTH)
+    val datenow = calendar.get(Calendar.DAY_OF_WEEK)
 
     var changingcalendar = calendar
 
@@ -55,6 +56,7 @@ class ManagerActivity : AppCompatActivity() {
         var selectdate = "$yearnow. $newmonth. $daynow."
 
         tv_mg_dateprint.text = selectdate
+        tv_mg_textdate.text = getdate(datenow)
 
         //하루 전으로 가기 버튼
 
@@ -64,12 +66,14 @@ class ManagerActivity : AppCompatActivity() {
             var yearchanging = changingcalendar.get(Calendar.YEAR)
             var monthchanging = changingcalendar.get(Calendar.MONTH)
             var daychanging = changingcalendar.get(Calendar.DAY_OF_MONTH)
+            var datechanging = changingcalendar.get(Calendar.DAY_OF_WEEK)
 
             newmonth = monthchanging + 1
 
             selectdate = "$yearchanging. $newmonth. $daychanging."
 
             tv_mg_dateprint.text = selectdate
+            tv_mg_textdate.text = getdate(datechanging)
 
         }
 
@@ -81,12 +85,14 @@ class ManagerActivity : AppCompatActivity() {
             var yearchanging = changingcalendar.get(Calendar.YEAR)
             var monthchanging = changingcalendar.get(Calendar.MONTH)
             var daychanging = changingcalendar.get(Calendar.DAY_OF_MONTH)
+            var datechanging = changingcalendar.get(Calendar.DAY_OF_WEEK)
 
             newmonth = monthchanging + 1
 
             selectdate = "$yearchanging. $newmonth. $daychanging."
 
             tv_mg_dateprint.text = selectdate
+            tv_mg_textdate.text = getdate(datechanging)
 
         }
 
@@ -173,6 +179,18 @@ class ManagerActivity : AppCompatActivity() {
 
     }
 
+    private fun getdate(number : Int) =
+        when(number){
+            1 -> getString(R.string.sunday)
+            2 -> getString(R.string.monday)
+            3 -> getString(R.string.tuesday)
+            4 -> getString(R.string.wednesday)
+            5 -> getString(R.string.thursday)
+            6 -> getString(R.string.friday)
+            7 -> getString(R.string.saturday)
+            else -> "error"
+        }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
         val menuInflater = getMenuInflater()
@@ -192,6 +210,7 @@ class ManagerActivity : AppCompatActivity() {
                 var selectdate = "$yearnow. $newmonth. $daynow."
 
                 tv_mg_dateprint.text = selectdate
+                tv_mg_textdate.text = getdate(datenow)
 
                 return true
 
@@ -205,9 +224,10 @@ class ManagerActivity : AppCompatActivity() {
 
                     var newmonth = month + 1
 
-                    var selectdate = "$yearnow. $newmonth. $dayOfMonth."
+                    var selectdate = "$year. $newmonth. $dayOfMonth."
 
                     tv_mg_dateprint.text = selectdate
+                    tv_mg_textdate.text = getdate(changingcalendar.get(Calendar.DAY_OF_WEEK))
 
 
                 }, yearnow, monthnow, daynow)
