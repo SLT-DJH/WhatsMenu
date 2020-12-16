@@ -106,6 +106,15 @@ class MenuListActivity : AppCompatActivity() {
 
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this, LoadingActivity::class.java)
+        intent.putExtra("from", "Menu")
+        startActivity(intent)
+        overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
+        finish()
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
         val menuInflater = getMenuInflater()
@@ -194,7 +203,6 @@ class MenuListActivity : AppCompatActivity() {
 
                                         val intent = Intent(this, ManagerActivity::class.java)
                                         startActivity(intent)
-                                        finish()
                                     }else{
                                         Toast.makeText(this, R.string.manager_password_wrong, Toast.LENGTH_SHORT).show()
                                     }

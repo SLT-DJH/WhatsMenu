@@ -2,14 +2,14 @@
 <resources>
     <string name="app_name">WhatsMenu</string>
     <string name="copyright">Copyright ⓒ 2020 WhatsMenu All rights reserved.</string>
-    <string name="check_menu_name">Check Meal Plan</string>
-    <string name="input_menu_list">Input Meal Plan ID</string>
-    <string name="introduction">Please input meal plan ID or \nCheck meal plan list.</string>
+    <string name="check_menu_name">Meal Plan IDs</string>
+    <string name="input_menu_list">Meal Plan ID Login</string>
+    <string name="introduction">Please enter meal plan ID or \nCheck meal plan IDs.</string>
     <string name="name">Meal Plan ID</string>
-    <string name="request_input_name">Input meal plan ID</string>
+    <string name="request_input_name">Enter meal plan ID</string>
     <string name="password">Plan Password</string>
     <string name="confirm_password">Confirm Plan Password</string>
-    <string name="request_input_password">Input Plan password</string>
+    <string name="request_input_password">Enter Plan password</string>
     <string name="confirm">Confirm</string>
     <string name="no_such_data">There is no such meal plan ID!</string>
     <string name="please_input">Please fill out every form!</string>
@@ -17,15 +17,15 @@
     <string name="add">ADD</string>
     <string name="delete">DEL</string>
     <string name="search_menu">Search Meal Plan ID</string>
-    <string name="already_data">This meal plan ID already exist!</string>
+    <string name="already_data">This meal plan ID is already exist!</string>
     <string name="menu_name_added">Meal plan added successfully</string>
     <string name="menu_name_add_fail">Failed to add meal plan...</string>
     <string name="add_menu_name">Add Meal Plan</string>
     <string name="manager_password">Manager Password</string>
     <string name="confirm_manager_password">Confirm Manager Password</string>
-    <string name="request_input_manager_password">Input manager password</string>
+    <string name="request_input_manager_password">Enter manager password</string>
     <string name="delete_menu_name">Delete Meal Plan</string>
-    <string name="deleted_successfully">Deleted Successfully</string>
+    <string name="deleted_successfully">Deleted Successfully!</string>
     <string name="menu_name_delete_fail">Failed to delete meal plan...</string>
     <string name="menu_name_password_wrong">Plan ID or password is wrong</string>
     <string name="manager_password_wrong">Manager password is wrong</string>
@@ -38,9 +38,9 @@
     <string name="lunch">Lunch</string>
     <string name="dinner">Dinner</string>
 
-    <string name="ask_breakfast_input">Please input breakfast menu</string>
-    <string name="ask_lunch_input">Please input lunch menu</string>
-    <string name="ask_dinner_input">Please input dinner</string>
+    <string name="ask_breakfast_input">Please enter breakfast menu</string>
+    <string name="ask_lunch_input">Please enter lunch menu</string>
+    <string name="ask_dinner_input">Please enter dinner menu</string>
 
     <string name="menu1">- Menu 1</string>
     <string name="menu2">- Menu 2</string>
@@ -66,4 +66,6 @@
     <string name="thursday">THU</string>
     <string name="friday">FRI</string>
     <string name="saturday">SAT</string>
+
+    <string name="ask">Click to ask anything!</string>
 </resources>

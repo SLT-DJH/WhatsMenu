@@ -98,6 +98,18 @@ class ManagerActivity : AppCompatActivity() {
 
         //아침메뉴 저장 버튼
         breakfastSave.setOnClickListener {
+            val tempdate = tv_mg_dateprint.text.toString()
+
+            val pref = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
+
+            pref.edit().putString("$tempdate breakfast 1", breakfastInput1.text.toString()).apply()
+            pref.edit().putString("$tempdate breakfast 2", breakfastInput2.text.toString()).apply()
+            pref.edit().putString("$tempdate breakfast 3", breakfastInput3.text.toString()).apply()
+            pref.edit().putString("$tempdate breakfast 4", breakfastInput4.text.toString()).apply()
+            pref.edit().putString("$tempdate breakfast 5", breakfastInput5.text.toString()).apply()
+            pref.edit().putString("$tempdate breakfast 6", breakfastInput6.text.toString()).apply()
+
+
             val breakfast = hashMapOf(
                 "1" to breakfastInput1.text.toString(),
                 "2" to breakfastInput2.text.toString(),
@@ -125,6 +137,17 @@ class ManagerActivity : AppCompatActivity() {
 
         //점심메뉴 저장 버튼
         lunchSave.setOnClickListener {
+            val tempdate = tv_mg_dateprint.text.toString()
+
+            val pref = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
+
+            pref.edit().putString("$tempdate lunch 1", lunchInput1.text.toString()).apply()
+            pref.edit().putString("$tempdate lunch 2", lunchInput2.text.toString()).apply()
+            pref.edit().putString("$tempdate lunch 3", lunchInput3.text.toString()).apply()
+            pref.edit().putString("$tempdate lunch 4", lunchInput4.text.toString()).apply()
+            pref.edit().putString("$tempdate lunch 5", lunchInput5.text.toString()).apply()
+            pref.edit().putString("$tempdate lunch 6", lunchInput6.text.toString()).apply()
+
             val lunch = hashMapOf(
                 "1" to lunchInput1.text.toString(),
                 "2" to lunchInput2.text.toString(),
@@ -152,6 +175,17 @@ class ManagerActivity : AppCompatActivity() {
 
         //저녁메뉴 저장 버튼
         dinnerSave.setOnClickListener{
+            val tempdate = tv_mg_dateprint.text.toString()
+
+            val pref = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
+
+            pref.edit().putString("$tempdate dinner 1", dinnerInput1.text.toString()).apply()
+            pref.edit().putString("$tempdate dinner 2", dinnerInput2.text.toString()).apply()
+            pref.edit().putString("$tempdate dinner 3", dinnerInput3.text.toString()).apply()
+            pref.edit().putString("$tempdate dinner 4", dinnerInput4.text.toString()).apply()
+            pref.edit().putString("$tempdate dinner 5", dinnerInput5.text.toString()).apply()
+            pref.edit().putString("$tempdate dinner 6", dinnerInput6.text.toString()).apply()
+
             val dinner = hashMapOf(
                 "1" to dinnerInput1.text.toString(),
                 "2" to dinnerInput2.text.toString(),
@@ -190,6 +224,13 @@ class ManagerActivity : AppCompatActivity() {
             7 -> getString(R.string.saturday)
             else -> "error"
         }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this, MenuListActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 

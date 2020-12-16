@@ -2,6 +2,7 @@ package com.jinhyun.whatsmenu
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.PersistableBundle
@@ -14,6 +15,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
 import com.google.firebase.firestore.FirebaseFirestore
@@ -45,6 +47,7 @@ class LoadingActivity : AppCompatActivity() {
         tv_introduction.visibility = View.INVISIBLE
         btn_check_menu_name.visibility = View.INVISIBLE
         btn_input_menu_name.visibility = View.INVISIBLE
+        tv_ask.visibility = View.INVISIBLE
 
         val pref = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
 
@@ -55,6 +58,7 @@ class LoadingActivity : AppCompatActivity() {
             tv_introduction.visibility = View.VISIBLE
             btn_check_menu_name.visibility = View.VISIBLE
             btn_input_menu_name.visibility = View.VISIBLE
+            tv_ask.visibility = View.VISIBLE
 
         }else{
             getdata()
@@ -83,6 +87,20 @@ class LoadingActivity : AppCompatActivity() {
 
         }
 
+        tv_ask.setOnClickListener {
+            val email = Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto",
+                "cmjh951330@gmail.com", null))
+            email.putExtra(Intent.EXTRA_SUBJECT, "[QnA Quest] ")
+            email.putExtra(Intent.EXTRA_TEXT, "")
+            startActivity(Intent.createChooser(email, ""))
+
+        }
+
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity()
     }
 
     private fun getdata(){
@@ -230,17 +248,24 @@ class LoadingActivity : AppCompatActivity() {
             tv_introduction.visibility = View.VISIBLE
             btn_check_menu_name.visibility = View.VISIBLE
             btn_input_menu_name.visibility = View.VISIBLE
+            tv_ask.visibility = View.VISIBLE
         }, 2000)
     }
 
     private fun showalert(){
 
-        var pref = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
+        val pref = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
 
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = inflater.inflate(R.layout.input_menu_alert_popup, null)
         var name : EditText = view.findViewById(R.id.et_request_input_name)
         var password : EditText = view.findViewById(R.id.et_password)
+
+        val menuid = pref.getString("name", "").toString()
+        val menuPassword = pref.getString("password", "").toString()
+
+        name.setText(menuid)
+        password.setText(menuPassword)
 
         val alertDialog = AlertDialog.Builder(this)
             .setTitle(R.string.input_menu_list)
@@ -250,6 +275,7 @@ class LoadingActivity : AppCompatActivity() {
                     menunameRef.get().addOnSuccessListener { document ->
                         if(document.data != null){
                             pref.edit().putString("name", name.text.toString()).apply()
+                            pref.edit().putString("password", password.text.toString()).apply()
                             getdata()
 
                             val intent = Intent(this, MenuListActivity::class.java)
