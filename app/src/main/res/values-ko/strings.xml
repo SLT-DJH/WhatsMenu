@@ -6,6 +6,7 @@
     <string name="input_menu_list">식단 ID 입력</string>
     <string name="introduction">식단 ID를 입력하거나 \n식단 리스트를 확인해주세요.</string>
     <string name="name">식단 ID</string>
+    <string name="menu_input_name">메뉴 이름</string>
     <string name="request_input_name">식단 ID를 입력</string>
     <string name="password">식단 비밀번호</string>
     <string name="confirm_password">식단 비밀번호 확인</string>

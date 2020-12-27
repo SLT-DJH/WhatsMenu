@@ -10,7 +10,8 @@ import kotlinx.android.synthetic.main.item_list.view.*
 class ItemAdapter(private val itemlist: List<MainData>) : RecyclerView.Adapter<ItemAdapter.ItempViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItempViewHolder {
-        val itempview = LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
+        val itempview =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
 
         return ItempViewHolder(itempview)
     }
@@ -30,13 +31,13 @@ class ItemAdapter(private val itemlist: List<MainData>) : RecyclerView.Adapter<I
     }
 
     class ItempViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val mealtype : TextView = itemView.mealType
-        val meal1 : TextView = itemView.meal1
-        val meal2 : TextView = itemView.meal2
-        val meal3 : TextView = itemView.meal3
-        val meal4 : TextView = itemView.meal4
-        val meal5 : TextView = itemView.meal5
-        val meal6 : TextView = itemView.meal6
+        val mealtype: TextView = itemView.mealType
+        val meal1: TextView = itemView.meal1
+        val meal2: TextView = itemView.meal2
+        val meal3: TextView = itemView.meal3
+        val meal4: TextView = itemView.meal4
+        val meal5: TextView = itemView.meal5
+        val meal6: TextView = itemView.meal6
     }
 
 }

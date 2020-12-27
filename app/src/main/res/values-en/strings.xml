@@ -6,6 +6,7 @@
     <string name="input_menu_list">Meal Plan ID Login</string>
     <string name="introduction">Please enter meal plan ID or \nCheck meal plan IDs.</string>
     <string name="name">Meal Plan ID</string>
+    <string name="menu_input_name">Menu Name</string>
     <string name="request_input_name">Enter meal plan ID</string>
     <string name="password">Plan Password</string>
     <string name="confirm_password">Confirm Plan Password</string>

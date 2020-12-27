@@ -100,14 +100,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/menu1" />
+                            android:text="@string/menu1"
+                            android:textColor="@color/Black"/>
 
                         <EditText
                             android:id="@+id/breakfastInput1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="@string/menu_name"
+                            android:hint="@string/menu_input_name"
                             android:inputType="textPersonName" />
                     </LinearLayout>
 
@@ -121,14 +122,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/menu2" />
+                            android:text="@string/menu2"
+                            android:textColor="@color/Black"/>
 
                         <EditText
                             android:id="@+id/breakfastInput2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="@string/menu_name"
+                            android:hint="@string/menu_input_name"
                             android:inputType="textPersonName" />
                     </LinearLayout>
 
@@ -142,14 +144,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/menu3" />
+                            android:text="@string/menu3"
+                            android:textColor="@color/Black"/>
 
                         <EditText
                             android:id="@+id/breakfastInput3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="@string/menu_name"
+                            android:hint="@string/menu_input_name"
                             android:inputType="textPersonName" />
                     </LinearLayout>
 
@@ -163,14 +166,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/menu4" />
+                            android:text="@string/menu4"
+                            android:textColor="@color/Black"/>
 
                         <EditText
                             android:id="@+id/breakfastInput4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="@string/menu_name"
+                            android:hint="@string/menu_input_name"
                             android:inputType="textPersonName" />
                     </LinearLayout>
 
@@ -184,14 +188,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/menu5" />
+                            android:text="@string/menu5"
+                            android:textColor="@color/Black"/>
 
                         <EditText
                             android:id="@+id/breakfastInput5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="@string/menu_name"
+                            android:hint="@string/menu_input_name"
                             android:inputType="textPersonName" />
                     </LinearLayout>
 
@@ -205,14 +210,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/menu6" />
+                            android:text="@string/menu6"
+                            android:textColor="@color/Black"/>
 
                         <EditText
                             android:id="@+id/breakfastInput6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="@string/menu_name"
+                            android:hint="@string/menu_input_name"
                             android:inputType="textPersonName" />
                     </LinearLayout>
 
@@ -263,14 +269,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/menu1" />
+                            android:text="@string/menu1"
+                            android:textColor="@color/Black"/>
 
                         <EditText
                             android:id="@+id/lunchInput1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="@string/menu_name"
+                            android:hint="@string/menu_input_name"
                             android:inputType="textPersonName" />
                     </LinearLayout>
 
@@ -284,14 +291,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/menu2" />
+                            android:text="@string/menu2"
+                            android:textColor="@color/Black"/>
 
                         <EditText
                             android:id="@+id/lunchInput2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="@string/menu_name"
+                            android:hint="@string/menu_input_name"
                             android:inputType="textPersonName" />
                     </LinearLayout>
 
@@ -305,14 +313,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/menu3" />
+                            android:text="@string/menu3"
+                            android:textColor="@color/Black"/>
 
                         <EditText
                             android:id="@+id/lunchInput3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="@string/menu_name"
+                            android:hint="@string/menu_input_name"
                             android:inputType="textPersonName" />
                     </LinearLayout>
 
@@ -326,14 +335,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/menu4" />
+                            android:text="@string/menu4"
+                            android:textColor="@color/Black"/>
 
                         <EditText
                             android:id="@+id/lunchInput4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="@string/menu_name"
+                            android:hint="@string/menu_input_name"
                             android:inputType="textPersonName" />
                     </LinearLayout>
 
@@ -347,14 +357,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/menu5" />
+                            android:text="@string/menu5"
+                            android:textColor="@color/Black"/>
 
                         <EditText
                             android:id="@+id/lunchInput5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="@string/menu_name"
+                            android:hint="@string/menu_input_name"
                             android:inputType="textPersonName" />
                     </LinearLayout>
 
@@ -368,14 +379,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/menu6" />
+                            android:text="@string/menu6"
+                            android:textColor="@color/Black"/>
 
                         <EditText
                             android:id="@+id/lunchInput6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="@string/menu_name"
+                            android:hint="@string/menu_input_name"
                             android:inputType="textPersonName" />
                     </LinearLayout>
 
@@ -426,14 +438,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/menu1" />
+                            android:text="@string/menu1"
+                            android:textColor="@color/Black"/>
 
                         <EditText
                             android:id="@+id/dinnerInput1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="@string/menu_name"
+                            android:hint="@string/menu_input_name"
                             android:inputType="textPersonName" />
                     </LinearLayout>
 
@@ -447,14 +460,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/menu2" />
+                            android:text="@string/menu2"
+                            android:textColor="@color/Black"/>
 
                         <EditText
                             android:id="@+id/dinnerInput2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="@string/menu_name"
+                            android:hint="@string/menu_input_name"
                             android:inputType="textPersonName" />
                     </LinearLayout>
 
@@ -468,14 +482,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/menu3" />
+                            android:text="@string/menu3"
+                            android:textColor="@color/Black"/>
 
                         <EditText
                             android:id="@+id/dinnerInput3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="@string/menu_name"
+                            android:hint="@string/menu_input_name"
                             android:inputType="textPersonName" />
                     </LinearLayout>
 
@@ -489,14 +504,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/menu4" />
+                            android:text="@string/menu4"
+                            android:textColor="@color/Black"/>
 
                         <EditText
                             android:id="@+id/dinnerInput4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="@string/menu_name"
+                            android:hint="@string/menu_input_name"
                             android:inputType="textPersonName" />
                     </LinearLayout>
 
@@ -510,14 +526,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/menu5" />
+                            android:text="@string/menu5"
+                            android:textColor="@color/Black"/>
 
                         <EditText
                             android:id="@+id/dinnerInput5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="@string/menu_name"
+                            android:hint="@string/menu_input_name"
                             android:inputType="textPersonName" />
                     </LinearLayout>
 
@@ -531,14 +548,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/menu6" />
+                            android:text="@string/menu6"
+                            android:textColor="@color/Black"/>
 
                         <EditText
                             android:id="@+id/dinnerInput6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="@string/menu_name"
+                            android:hint="@string/menu_input_name"
                             android:inputType="textPersonName" />
                     </LinearLayout>
 
