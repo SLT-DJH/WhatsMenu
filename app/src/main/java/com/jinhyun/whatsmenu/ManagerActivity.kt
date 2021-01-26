@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import kotlinx.android.synthetic.main.activity_manager.*
 import kotlinx.android.synthetic.main.custom_actionbar.*
 import java.util.*
@@ -102,25 +103,35 @@ class ManagerActivity : AppCompatActivity() {
 
             val pref = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
 
-            pref.edit().putString("$tempdate breakfast 1", breakfastInput1.text.toString()).apply()
-            pref.edit().putString("$tempdate breakfast 2", breakfastInput2.text.toString()).apply()
-            pref.edit().putString("$tempdate breakfast 3", breakfastInput3.text.toString()).apply()
-            pref.edit().putString("$tempdate breakfast 4", breakfastInput4.text.toString()).apply()
-            pref.edit().putString("$tempdate breakfast 5", breakfastInput5.text.toString()).apply()
-            pref.edit().putString("$tempdate breakfast 6", breakfastInput6.text.toString()).apply()
+            val breakfastData = hashMapOf<String, String>()
 
-
-            val breakfast = hashMapOf(
-                "1" to breakfastInput1.text.toString(),
-                "2" to breakfastInput2.text.toString(),
-                "3" to breakfastInput3.text.toString(),
-                "4" to breakfastInput4.text.toString(),
-                "5" to breakfastInput5.text.toString(),
-                "6" to breakfastInput6.text.toString()
-            )
+            if (breakfastInput1.text.isNotBlank()){
+                pref.edit().putString("$tempdate breakfast 1", breakfastInput1.text.toString()).apply()
+                breakfastData["1"] =  breakfastInput1.text.toString()
+            }
+            if (breakfastInput2.text.isNotBlank()){
+                pref.edit().putString("$tempdate breakfast 2", breakfastInput2.text.toString()).apply()
+                breakfastData["2"] =  breakfastInput2.text.toString()
+            }
+            if (breakfastInput3.text.isNotBlank()){
+                pref.edit().putString("$tempdate breakfast 3", breakfastInput3.text.toString()).apply()
+                breakfastData["3"] =  breakfastInput3.text.toString()
+            }
+            if (breakfastInput4.text.isNotBlank()){
+                pref.edit().putString("$tempdate breakfast 4", breakfastInput4.text.toString()).apply()
+                breakfastData["4"] =  breakfastInput4.text.toString()
+            }
+            if (breakfastInput5.text.isNotBlank()){
+                pref.edit().putString("$tempdate breakfast 5", breakfastInput5.text.toString()).apply()
+                breakfastData["5"] =  breakfastInput5.text.toString()
+            }
+            if (breakfastInput6.text.isNotBlank()){
+                pref.edit().putString("$tempdate breakfast 6", breakfastInput6.text.toString()).apply()
+                breakfastData["6"] =  breakfastInput6.text.toString()
+            }
 
             menuCollection.document(menuname).collection(tv_mg_dateprint.text.toString())
-                .document("breakfast").set(breakfast)
+                .document("breakfast").set(breakfastData, SetOptions.merge())
                 .addOnSuccessListener {
                     Toast.makeText(this, getString(R.string.saved), Toast.LENGTH_SHORT).show()
                     breakfastInput1.text.clear()
@@ -141,24 +152,35 @@ class ManagerActivity : AppCompatActivity() {
 
             val pref = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
 
-            pref.edit().putString("$tempdate lunch 1", lunchInput1.text.toString()).apply()
-            pref.edit().putString("$tempdate lunch 2", lunchInput2.text.toString()).apply()
-            pref.edit().putString("$tempdate lunch 3", lunchInput3.text.toString()).apply()
-            pref.edit().putString("$tempdate lunch 4", lunchInput4.text.toString()).apply()
-            pref.edit().putString("$tempdate lunch 5", lunchInput5.text.toString()).apply()
-            pref.edit().putString("$tempdate lunch 6", lunchInput6.text.toString()).apply()
+            val lunchData = hashMapOf<String, String>()
 
-            val lunch = hashMapOf(
-                "1" to lunchInput1.text.toString(),
-                "2" to lunchInput2.text.toString(),
-                "3" to lunchInput3.text.toString(),
-                "4" to lunchInput4.text.toString(),
-                "5" to lunchInput5.text.toString(),
-                "6" to lunchInput6.text.toString()
-            )
+            if (lunchInput1.text.isNotBlank()){
+                pref.edit().putString("$tempdate lunch 1", lunchInput1.text.toString()).apply()
+                lunchData["1"] =  lunchInput1.text.toString()
+            }
+            if (lunchInput2.text.isNotBlank()){
+                pref.edit().putString("$tempdate lunch 2", lunchInput2.text.toString()).apply()
+                lunchData["2"] =  lunchInput2.text.toString()
+            }
+            if (lunchInput3.text.isNotBlank()){
+                pref.edit().putString("$tempdate lunch 3", lunchInput3.text.toString()).apply()
+                lunchData["3"] =  lunchInput3.text.toString()
+            }
+            if (lunchInput4.text.isNotBlank()){
+                pref.edit().putString("$tempdate lunch 4", lunchInput4.text.toString()).apply()
+                lunchData["4"] =  lunchInput4.text.toString()
+            }
+            if (lunchInput5.text.isNotBlank()){
+                pref.edit().putString("$tempdate lunch 5", lunchInput5.text.toString()).apply()
+                lunchData["5"] =  lunchInput5.text.toString()
+            }
+            if (lunchInput6.text.isNotBlank()){
+                pref.edit().putString("$tempdate lunch 6", lunchInput6.text.toString()).apply()
+                lunchData["6"] =  lunchInput6.text.toString()
+            }
 
             menuCollection.document(menuname).collection(tv_mg_dateprint.text.toString())
-                .document("lunch").set(lunch)
+                .document("lunch").set(lunchData, SetOptions.merge())
                 .addOnSuccessListener {
                     Toast.makeText(this, getString(R.string.saved), Toast.LENGTH_SHORT).show()
                     lunchInput1.text.clear()
@@ -179,24 +201,35 @@ class ManagerActivity : AppCompatActivity() {
 
             val pref = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
 
-            pref.edit().putString("$tempdate dinner 1", dinnerInput1.text.toString()).apply()
-            pref.edit().putString("$tempdate dinner 2", dinnerInput2.text.toString()).apply()
-            pref.edit().putString("$tempdate dinner 3", dinnerInput3.text.toString()).apply()
-            pref.edit().putString("$tempdate dinner 4", dinnerInput4.text.toString()).apply()
-            pref.edit().putString("$tempdate dinner 5", dinnerInput5.text.toString()).apply()
-            pref.edit().putString("$tempdate dinner 6", dinnerInput6.text.toString()).apply()
+            val dinnerData = hashMapOf<String, String>()
 
-            val dinner = hashMapOf(
-                "1" to dinnerInput1.text.toString(),
-                "2" to dinnerInput2.text.toString(),
-                "3" to dinnerInput3.text.toString(),
-                "4" to dinnerInput4.text.toString(),
-                "5" to dinnerInput5.text.toString(),
-                "6" to dinnerInput6.text.toString()
-            )
+            if (dinnerInput1.text.isNotBlank()){
+                pref.edit().putString("$tempdate dinner 1", dinnerInput1.text.toString()).apply()
+                dinnerData["1"] =  dinnerInput1.text.toString()
+            }
+            if (dinnerInput2.text.isNotBlank()){
+                pref.edit().putString("$tempdate dinner 2", dinnerInput2.text.toString()).apply()
+                dinnerData["2"] =  dinnerInput2.text.toString()
+            }
+            if (dinnerInput3.text.isNotBlank()){
+                pref.edit().putString("$tempdate dinner 3", dinnerInput3.text.toString()).apply()
+                dinnerData["3"] =  dinnerInput3.text.toString()
+            }
+            if (dinnerInput4.text.isNotBlank()){
+                pref.edit().putString("$tempdate dinner 4", dinnerInput4.text.toString()).apply()
+                dinnerData["4"] =  dinnerInput4.text.toString()
+            }
+            if (dinnerInput5.text.isNotBlank()){
+                pref.edit().putString("$tempdate dinner 5", dinnerInput5.text.toString()).apply()
+                dinnerData["5"] =  dinnerInput5.text.toString()
+            }
+            if (dinnerInput6.text.isNotBlank()){
+                pref.edit().putString("$tempdate dinner 6", dinnerInput6.text.toString()).apply()
+                dinnerData["6"] =  dinnerInput6.text.toString()
+            }
 
             menuCollection.document(menuname).collection(tv_mg_dateprint.text.toString())
-                .document("dinner").set(dinner)
+                .document("dinner").set(dinnerData, SetOptions.merge())
                 .addOnSuccessListener {
                     Toast.makeText(this, getString(R.string.saved), Toast.LENGTH_SHORT).show()
                     dinnerInput1.text.clear()
