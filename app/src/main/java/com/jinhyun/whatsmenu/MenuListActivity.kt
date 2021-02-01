@@ -258,12 +258,33 @@ class MenuListActivity : AppCompatActivity() {
                 .document("breakfast")
             breakfastRef.get().addOnSuccessListener { document ->
                 if (document.data != null) {
-                    val meal1 = document.getString("1").toString()
-                    val meal2 = document.getString("2").toString()
-                    val meal3 = document.getString("3").toString()
-                    val meal4 = document.getString("4").toString()
-                    val meal5 = document.getString("5").toString()
-                    val meal6 = document.getString("6").toString()
+
+                    var meal1 = document.getString("1").toString()
+                    var meal2 = document.getString("2").toString()
+                    var meal3 = document.getString("3").toString()
+                    var meal4 = document.getString("4").toString()
+                    var meal5 = document.getString("5").toString()
+                    var meal6 = document.getString("6").toString()
+
+                    if (meal1 == "null") {
+                        meal1 = ""
+                    }
+                    if (meal2 =="null") {
+                        meal2 = ""
+                    }
+                    if (meal3 == "null") {
+                        meal3 = ""
+                    }
+                    if (meal4 == "null") {
+                        meal4 = ""
+                    }
+                    if (meal5 == "null") {
+                        meal5 = ""
+                    }
+                    if (meal6 == "null") {
+                        meal6 = ""
+                    }
+
                     menulist += MainData(getString(R.string.breakfast), meal1, meal2, meal3, meal4, meal5, meal6)
                     insertLunch(menulist, date, menuname)
                 } else {
@@ -294,12 +315,31 @@ class MenuListActivity : AppCompatActivity() {
                 .document("lunch")
             lunchRef.get().addOnSuccessListener { document ->
                 if (document.data != null) {
-                    val meal1 = document.getString("1").toString()
-                    val meal2 = document.getString("2").toString()
-                    val meal3 = document.getString("3").toString()
-                    val meal4 = document.getString("4").toString()
-                    val meal5 = document.getString("5").toString()
-                    val meal6 = document.getString("6").toString()
+                    var meal1 = document.getString("1").toString()
+                    var meal2 = document.getString("2").toString()
+                    var meal3 = document.getString("3").toString()
+                    var meal4 = document.getString("4").toString()
+                    var meal5 = document.getString("5").toString()
+                    var meal6 = document.getString("6").toString()
+
+                    if (meal1 == "null") {
+                        meal1 = ""
+                    }
+                    if (meal2 == "null") {
+                        meal2 = ""
+                    }
+                    if (meal3 == "null") {
+                        meal3 = ""
+                    }
+                    if (meal4 == "null") {
+                        meal4 = ""
+                    }
+                    if (meal5 == "null") {
+                        meal5 = ""
+                    }
+                    if (meal6 == "null") {
+                        meal6 = ""
+                    }
                     menulist += MainData(getString(R.string.lunch),  meal1, meal2, meal3, meal4, meal5, meal6)
                     insertDinner(menulist, date, menuname)
                 } else {
@@ -329,12 +369,32 @@ class MenuListActivity : AppCompatActivity() {
                 .document("dinner")
             dinnerRef.get().addOnSuccessListener { document ->
                 if (document.data != null) {
-                    val meal1 = document.getString("1").toString()
-                    val meal2 = document.getString("2").toString()
-                    val meal3 = document.getString("3").toString()
-                    val meal4 = document.getString("4").toString()
-                    val meal5 = document.getString("5").toString()
-                    val meal6 = document.getString("6").toString()
+                    var meal1 = document.getString("1").toString()
+                    var meal2 = document.getString("2").toString()
+                    var meal3 = document.getString("3").toString()
+                    var meal4 = document.getString("4").toString()
+                    var meal5 = document.getString("5").toString()
+                    var meal6 = document.getString("6").toString()
+
+                    if (meal1 == "null") {
+                        meal1 = ""
+                    }
+                    if (meal2 == "null") {
+                        meal2 = ""
+                    }
+                    if (meal3 == "null") {
+                        meal3 = ""
+                    }
+                    if (meal4 == "null") {
+                        meal4 = ""
+                    }
+                    if (meal5 == "null") {
+                        meal5 = ""
+                    }
+                    if (meal6 == "null") {
+                        meal6 = ""
+                    }
+
                     menulist += MainData(getString(R.string.dinner), meal1, meal2, meal3, meal4, meal5, meal6)
 
                     rv_menu.adapter = ItemAdapter(menulist)

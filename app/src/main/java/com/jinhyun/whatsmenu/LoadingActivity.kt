@@ -153,7 +153,11 @@ class LoadingActivity : AppCompatActivity() {
 
             if (document.data != null) {
                 for(i in 1 until 7){
-                    pref.edit().putString("$selectdate breakfast $i", document.getString("$i").toString()).apply()
+                    if(document.getString("$i") != null){
+                        pref.edit().putString("$selectdate breakfast $i", document.getString("$i").toString()).apply()
+                    }else{
+                        pref.edit().putString("$selectdate breakfast $i", "").apply()
+                    }
                 }
 
             } else {
@@ -172,7 +176,11 @@ class LoadingActivity : AppCompatActivity() {
 
             if (document.data != null) {
                 for(i in 1 until 7){
-                    pref.edit().putString("$selectdate lunch $i", document.getString("$i").toString()).apply()
+                    if (document.getString("$i") != null){
+                        pref.edit().putString("$selectdate lunch $i", document.getString("$i").toString()).apply()
+                    }else{
+                        pref.edit().putString("$selectdate lunch $i", "").apply()
+                    }
                 }
             } else {
                 for(i in 1 until 7){
@@ -189,7 +197,11 @@ class LoadingActivity : AppCompatActivity() {
 
             if (document.data != null) {
                 for(i in 1 until 7){
-                    pref.edit().putString("$selectdate dinner $i", document.getString("$i").toString()).apply()
+                    if(document.getString("$i" ) != null){
+                        pref.edit().putString("$selectdate dinner $i", document.getString("$i").toString()).apply()
+                    }else{
+                        pref.edit().putString("$selectdate dinner $i", "").apply()
+                    }
                 }
 
             } else {
