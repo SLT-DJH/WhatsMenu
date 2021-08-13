@@ -1,5 +1,6 @@
 package com.jinhyun.whatsmenu
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -18,12 +19,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
+import com.google.android.play.core.appupdate.AppUpdateManager
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory
+import com.google.android.play.core.install.model.AppUpdateType
+import com.google.android.play.core.install.model.UpdateAvailability
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_search_menu_list.*
 import kotlinx.android.synthetic.main.activity_loading.*
 import java.util.*
 
 class LoadingActivity : AppCompatActivity() {
+    companion object{
+        const val REQUEST_CODE_UPDATE = 0
+    }
 
     //set today
 
@@ -38,6 +46,8 @@ class LoadingActivity : AppCompatActivity() {
 
     val db = FirebaseFirestore.getInstance()
     val menucollection = db.collection("Menu")
+
+    lateinit var appUpdateManager : AppUpdateManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,6 +71,22 @@ class LoadingActivity : AppCompatActivity() {
             tv_ask.visibility = View.VISIBLE
 
         }else{
+            appUpdateManager = AppUpdateManagerFactory.create(this)
+
+            appUpdateManager.let {
+                it.appUpdateInfo.addOnSuccessListener { appUpdateInfo ->
+                    if(appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
+                        && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)){
+                        appUpdateManager.startUpdateFlowForResult(
+                            appUpdateInfo,
+                            AppUpdateType.IMMEDIATE,
+                            this,
+                            REQUEST_CODE_UPDATE
+                        )
+                    }
+                }
+            }
+
             getdata()
 
             val notanimation = AnimationUtils.loadAnimation(this, R.anim.not_loading_animation)
@@ -96,6 +122,17 @@ class LoadingActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(requestCode == REQUEST_CODE_UPDATE){
+            if(resultCode != Activity.RESULT_OK){
+                Toast.makeText(this, "업데이트 취소", Toast.LENGTH_SHORT).show()
+                finish()
+            }
+       }
     }
 
     override fun onBackPressed() {
@@ -245,7 +282,7 @@ class LoadingActivity : AppCompatActivity() {
     }
 
     private fun startloading(){
-        val hanler = Handler().postDelayed({
+        Handler().postDelayed({
             val upanimation = AnimationUtils.loadAnimation(this, R.anim.loading_animation)
             val alphaanimation = AnimationUtils.loadAnimation(this, R.anim.alpha_animation)
 
@@ -307,5 +344,21 @@ class LoadingActivity : AppCompatActivity() {
 
         alertDialog.setView(view)
         alertDialog.show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        appUpdateManager.appUpdateInfo.addOnSuccessListener { appUpdateInfo ->
+            if(appUpdateInfo.updateAvailability() ==
+                UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS){
+                appUpdateManager.startUpdateFlowForResult(
+                    appUpdateInfo,
+                    AppUpdateType.IMMEDIATE,
+                    this,
+                    REQUEST_CODE_UPDATE
+                )
+            }
+        }
     }
 }
