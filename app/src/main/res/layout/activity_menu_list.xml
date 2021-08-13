@@ -8,6 +8,7 @@
     android:background="@color/White">
 
     <include
+        android:id="@+id/custom_actionbar"
         layout="@layout/custom_actionbar"/>
 
     <LinearLayout
@@ -29,8 +30,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:tint="@color/linkBlue"
-                app:srcCompat="@android:drawable/ic_media_rew" />
+                app:srcCompat="@android:drawable/ic_media_rew"
+                app:tint="@color/linkBlue" />
 
             <TextView
                 android:id="@+id/tv_dateprint"
@@ -60,8 +61,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:tint="@color/linkBlue"
-                app:srcCompat="@android:drawable/ic_media_ff" />
+                app:srcCompat="@android:drawable/ic_media_ff"
+                app:tint="@color/linkBlue" />
 
         </LinearLayout>
 

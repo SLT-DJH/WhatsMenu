@@ -1,43 +1,39 @@
 package com.jinhyun.whatsmenu
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_list.view.*
+import com.jinhyun.whatsmenu.databinding.ItemListBinding
 
-class ItemAdapter(private val itemlist: List<MainData>) : RecyclerView.Adapter<ItemAdapter.ItempViewHolder>() {
+class ItemAdapter(
+    private val itemList: List<MainData>
+    ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItempViewHolder {
-        val itempview =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
+        val itemView = ItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
-        return ItempViewHolder(itempview)
+        return ItemViewHolder(itemView)
     }
 
-    override fun getItemCount() = itemlist.size
+    override fun getItemCount() = itemList.size
 
-    override fun onBindViewHolder(holder: ItempViewHolder, position: Int) {
-        val currentItem = itemlist[position]
-
-        holder.mealtype.text = currentItem.mealType
-        holder.meal1.text = currentItem.meal1
-        holder.meal2.text = currentItem.meal2
-        holder.meal3.text = currentItem.meal3
-        holder.meal4.text = currentItem.meal4
-        holder.meal5.text = currentItem.meal5
-        holder.meal6.text = currentItem.meal6
+    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
+        holder.bind(itemList[position])
     }
 
-    class ItempViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val mealtype: TextView = itemView.mealType
-        val meal1: TextView = itemView.meal1
-        val meal2: TextView = itemView.meal2
-        val meal3: TextView = itemView.meal3
-        val meal4: TextView = itemView.meal4
-        val meal5: TextView = itemView.meal5
-        val meal6: TextView = itemView.meal6
+    inner class ItemViewHolder(
+        private val binding: ItemListBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(mainData: MainData){
+            binding.mealType.text = mainData.mealType
+            binding.meal1.text = mainData.meal1
+            binding.meal2.text = mainData.meal2
+            binding.meal3.text = mainData.meal3
+            binding.meal4.text = mainData.meal4
+            binding.meal5.text = mainData.meal5
+            binding.meal6.text = mainData.meal6
+        }
     }
 
 }

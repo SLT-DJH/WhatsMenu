@@ -15,8 +15,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_menu_list.*
-import kotlinx.android.synthetic.main.custom_actionbar.*
+import com.jinhyun.whatsmenu.databinding.ActivityMenuListBinding
+import com.jinhyun.whatsmenu.databinding.CustomActionbarBinding
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -36,13 +36,18 @@ class MenuListActivity : AppCompatActivity() {
     val daynow = calendar.get(Calendar.DAY_OF_MONTH)
     val datenow = calendar.get(Calendar.DAY_OF_WEEK)
 
-    var changingcalendar = calendar
+    var changingCalendar = calendar
+
+    lateinit var binding: ActivityMenuListBinding
+    lateinit var toolbarBinding: CustomActionbarBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMenuListBinding.inflate(layoutInflater)
+        toolbarBinding = CustomActionbarBinding.bind(binding.root)
         setContentView(R.layout.activity_menu_list)
 
-        val toolbar = findViewById(R.id.toolbar) as Toolbar
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
@@ -51,54 +56,54 @@ class MenuListActivity : AppCompatActivity() {
 
         val menutitle = "$menuname " + getString(R.string.menu)
 
-        toolbar_title.text = menutitle
+        toolbarBinding.toolbarTitle.text = menutitle
 
 
-        changingcalendar.set(yearnow, monthnow, daynow)
+        changingCalendar.set(yearnow, monthnow, daynow)
 
         var newmonth = monthnow + 1
 
         var selectdate = "$yearnow. $newmonth. $daynow."
 
-        tv_dateprint.text = selectdate
-        tv_textdate.text = getdate(datenow)
+        binding.tvDateprint.text = selectdate
+        binding.tvDateprint.text = getdate(datenow)
 
         insertData(selectdate)
 
 
-        btn_minus.setOnClickListener {
-            changingcalendar.add(Calendar.DATE, -1)
+        binding.btnMinus.setOnClickListener {
+            changingCalendar.add(Calendar.DATE, -1)
 
-            var yearchanging = changingcalendar.get(Calendar.YEAR)
-            var monthchanging = changingcalendar.get(Calendar.MONTH)
-            var daychanging = changingcalendar.get(Calendar.DAY_OF_MONTH)
-            var datechanging = changingcalendar.get(Calendar.DAY_OF_WEEK)
+            var yearchanging = changingCalendar.get(Calendar.YEAR)
+            var monthchanging = changingCalendar.get(Calendar.MONTH)
+            var daychanging = changingCalendar.get(Calendar.DAY_OF_MONTH)
+            var datechanging = changingCalendar.get(Calendar.DAY_OF_WEEK)
 
             newmonth = monthchanging + 1
 
             selectdate = "$yearchanging. $newmonth. $daychanging."
 
-            tv_dateprint.text = selectdate
-            tv_textdate.text = getdate(datechanging)
+            binding.tvDateprint.text = selectdate
+            binding.tvTextdate.text = getdate(datechanging)
 
             insertData(selectdate)
 
         }
 
-        btn_plus.setOnClickListener {
-            changingcalendar.add(Calendar.DATE, 1)
+        binding.btnPlus.setOnClickListener {
+            changingCalendar.add(Calendar.DATE, 1)
 
-            var yearchanging = changingcalendar.get(Calendar.YEAR)
-            var monthchanging = changingcalendar.get(Calendar.MONTH)
-            var daychanging = changingcalendar.get(Calendar.DAY_OF_MONTH)
-            var datechanging = changingcalendar.get(Calendar.DAY_OF_WEEK)
+            var yearchanging = changingCalendar.get(Calendar.YEAR)
+            var monthchanging = changingCalendar.get(Calendar.MONTH)
+            var daychanging = changingCalendar.get(Calendar.DAY_OF_MONTH)
+            var datechanging = changingCalendar.get(Calendar.DAY_OF_WEEK)
 
             newmonth = monthchanging + 1
 
             selectdate = "$yearchanging. $newmonth. $daychanging."
 
-            tv_dateprint.text = selectdate
-            tv_textdate.text = getdate(datechanging)
+            binding.tvDateprint.text = selectdate
+            binding.tvTextdate.text = getdate(datechanging)
 
             insertData(selectdate)
 
@@ -117,7 +122,7 @@ class MenuListActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
-        val menuInflater = getMenuInflater()
+        val menuInflater = menuInflater
         menuInflater.inflate(R.menu.menu_action_bar, menu)
 
         return true
@@ -129,12 +134,12 @@ class MenuListActivity : AppCompatActivity() {
             R.id.action_today -> {
                 var newmonth = monthnow + 1
 
-                changingcalendar.set(yearnow, monthnow, daynow)
+                changingCalendar.set(yearnow, monthnow, daynow)
 
                 var selectdate = "$yearnow. $newmonth. $daynow."
 
-                tv_dateprint.text = selectdate
-                tv_textdate.text = getdate(datenow)
+                binding.tvDateprint.text = selectdate
+                binding.tvTextdate.text = getdate(datenow)
 
                 insertData(selectdate)
 
@@ -147,14 +152,14 @@ class MenuListActivity : AppCompatActivity() {
                 val daypick = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{
                     view, year, month, dayOfMonth ->
 
-                    changingcalendar.set(year, month, dayOfMonth)
+                    changingCalendar.set(year, month, dayOfMonth)
 
                     var newmonth = month + 1
 
                     var selectdate = "$year. $newmonth. $dayOfMonth."
 
-                    tv_dateprint.text = selectdate
-                    tv_textdate.text = getdate(changingcalendar.get(Calendar.DAY_OF_WEEK))
+                    binding.tvDateprint.text = selectdate
+                    binding.tvTextdate.text = getdate(changingCalendar.get(Calendar.DAY_OF_WEEK))
 
                     insertData(selectdate)
 
@@ -180,7 +185,7 @@ class MenuListActivity : AppCompatActivity() {
             R.id.action_manager -> {
                 val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
                 val view = inflater.inflate(R.layout.manager_alert_popup, null)
-                var managerpassword : EditText = view.findViewById(R.id.et_manager_password)
+                val managerpassword : EditText = view.findViewById(R.id.et_manager_password)
 
                 val pref = this.getSharedPreferences("my_pref", Context.MODE_PRIVATE)
                 val menuname = pref.getString("name", "").toString()
@@ -397,18 +402,18 @@ class MenuListActivity : AppCompatActivity() {
 
                     menulist += MainData(getString(R.string.dinner), meal1, meal2, meal3, meal4, meal5, meal6)
 
-                    rv_menu.adapter = ItemAdapter(menulist)
-                    rv_menu.layoutManager = LinearLayoutManager(this)
-                    rv_menu.setHasFixedSize(true)
+                    binding.rvMenu.adapter = ItemAdapter(menulist)
+                    binding.rvMenu.layoutManager = LinearLayoutManager(this)
+                    binding.rvMenu.setHasFixedSize(true)
                 } else {
                     menulist += MainData(
                         getString(R.string.dinner), "", "", "",
                         "", "", ""
                     )
 
-                    rv_menu.adapter = ItemAdapter(menulist)
-                    rv_menu.layoutManager = LinearLayoutManager(this)
-                    rv_menu.setHasFixedSize(true)
+                    binding.rvMenu.adapter = ItemAdapter(menulist)
+                    binding.rvMenu.layoutManager = LinearLayoutManager(this)
+                    binding.rvMenu.setHasFixedSize(true)
                 }
             }
         }else{
@@ -421,9 +426,9 @@ class MenuListActivity : AppCompatActivity() {
                 pref.getString("$date dinner 6", "").toString()
             )
             Log.d(TAG, "print what? : $menuname")
-            rv_menu.adapter = ItemAdapter(menulist)
-            rv_menu.layoutManager = LinearLayoutManager(this)
-            rv_menu.setHasFixedSize(true)
+            binding.rvMenu.adapter = ItemAdapter(menulist)
+            binding.rvMenu.layoutManager = LinearLayoutManager(this)
+            binding.rvMenu.setHasFixedSize(true)
         }
     }
 }
