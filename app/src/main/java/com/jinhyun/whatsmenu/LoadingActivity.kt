@@ -81,6 +81,12 @@ class LoadingActivity : AppCompatActivity() {
                         REQUEST_CODE_UPDATE
                     )
                 }
+
+                else if(appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_NOT_AVAILABLE){
+                    val text = "Update not available availableVersionCode : ${appUpdateInfo.availableVersionCode()}"
+
+                    Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+                }
             }
 
             getdata()
